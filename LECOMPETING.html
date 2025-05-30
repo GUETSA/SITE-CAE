@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LECOMPETING</title>
+    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu déroulant</title>
+    </head>
+    <body>
+        <nav>
+            <select onchange="location = this.value;">
+                <option value="#"> Sélectionnez une page </option>
+                <option value="index.html">Accueil</option>
+                <option value="blog.html">blog</option>
+                <option value="matches.html">activites</option>
+                <option value="players.html">equipes</option>
+                <option value="contact.html">Contact</option>
+            </select>
+        </nav>
+    </body>
+</head>
+<body>
+    <header>
+       LECOMPETING
+    </header>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <div class="album">
+                <div class="album-title" onclick="togglePhotos(this)">
+                    PHOTOS<span>▼</span>
+
+                   
+
+                </div>
+                <div class="photos-preview hidden">
+                    <div class="photo">
+                        
+                        <a href="PERSONELLES PHOTOS.html" class="item">
+                            <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                            
+                        </a>
+                        <div class="title">PERSONELLES</div>
+                    </div>
+
+
+
+                    <div class="photo">
+                        <a href="NOS LOCAUX PHOTOS.html" class="item">
+                            <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                        
+                        </a>
+                    
+                        <div class="title">NOS LOCAUX</div>
+                    </div>
+
+
+                    <div class="photo">
+                        <a href="NOS LOCAUX PHOTOS.html" class="item">
+                            <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                        
+                        </a>
+                    
+                        <div class="title">NOS PROJET</div>
+                    </div>
+
+                    <div class="video">
+                        <video src="video1.mp4" controls></video>
+                        <div class="title">Vidéo 1</div>
+                    </div>
+                </div>
+            </div>
+
+           
+                <div class="album">
+                    <div class="album-title" onclick="togglePhotos(this)">
+                        VIDEOS<span>▼</span>
+                    </div>
+                    <div class="photos-preview hidden">
+                        <div class="photo">
+                            <a href="PERSONELLES VIIDEOS.html" class="item">
+                                <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                <div class="title">CYCLISME</div>
+                            </a>
+                            <div class="title">PERSONELLES</div>
+                        </div>
+
+                        <div class="photo">
+                            <a href="NOS LOCAUX VIDEOS.html" class="item">
+                                <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                <div class="title">CYCLISME</div>
+                            </a>
+                            <div class="title">NOS LOCAUX</div>
+                        </div>
+
+
+                        <div class="photo">
+                            <a href="NOS PROJET.html" class="item">
+                                <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                <div class="title">CYCLISME</div>
+                            </a>
+                            <div class="title">NOS PROJET</div>
+                        </div>
+
+                        <div class="video">
+                            <video src="video2.mp4" controls></video>
+                            <div class="title">Vidéo 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <aside class="sidebar">
+            <h2>À propos</h2>
+            <p>LeCompeting-Bet est une entreprise basée à Yaoundé, Cameroun, spécialisée dans la construction de bâtiments et l’aménagement urbain. Elle joue un rôle clé dans plusieurs projets d’infrastructure, notamment l’aménagement du Pôle urbain de Nouma dans le cadre de la Voie de Contournement de Yaoundé. Fondée avec l’objectif de moderniser les infrastructures locales, cette structure a participé aux études techniques détaillées pour le développement du pôle urbain de Nouma, un projet visant à améliorer l’urbanisation rapide de la capitale camerounaise.
+
+                LeCompeting-Bet collabore avec le Ministère de l’Habitat et du Développement Urbain, ainsi qu’avec d’autres experts en ingénierie et urbanisme, pour proposer des solutions innovantes et durables. Son expertise s’étend aussi aux études d’impact environnemental et social, notamment dans le cadre du Projet de Développement du Secteur des Transports (PDST). Cette entreprise est reconnue pour son approche rigoureuse dans la mise en œuvre de projets de grande envergure qui contribuent au développement du Cameroun.
+                
+                Elle continue d’évoluer en intégrant des technologies modernes et en cherchant à améliorer la qualité des infrastructures urbaines</p>
+        </aside>
+    </div>
+    <script>
+        function togglePhotos(element) {
+            const photosPreview = element.nextElementSibling;
+            photosPreview.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
+

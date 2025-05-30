@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Professionnelle</title>
+    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu déroulant</title>
+    </head>
+    <body>
+        <nav>
+            <select onchange="location = this.value;">
+                <option value="#">Sélectionnez une page</option>
+                <option value="index.html">ACCUEIL</option>
+                <option value="matches.html">ACTIVITES</option>
+                <option value="players.html">EQUIPES</option>
+                <option value="contact.html">CONTACT</option>
+            </select>
+        </nav>
+    </body>
+</head>
+<body>
+    <header>
+        CYCLISME
+    </header>
+    <nav>
+        <div class="logo">
+            <img src="images/FENAP LOGO.png" alt="Logo">
+        </div>
+       
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <div class="album">
+                <div class="album-title" onclick="togglePhotos(this)">
+                    TRANSREGIONALES <span>▼</span>
+
+                   
+
+                </div>
+                <div class="photos-preview hidden">
+                    <div class="photo">
+                        
+                        <a href="TRANSCA 2011-2012.html" class="item">
+                            <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+    
+                        </a>
+                        <div class="title">TRANSREGIONALE 2011-2012</div>
+                    </div>
+                    <div class="photo">
+                        <a href="TRANSCA 2023.html" class="item">
+                            <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                            
+                        </a>
+                    
+                        <div class="title">TRANSREGIONALE 2023</div>
+                    </div>
+                    <div class="photo">
+                        <a href="TRANSCA 2024.html" class="item">
+                            <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                            
+                        </a>
+                    
+                        <div class="title">TRANSREGIONALE 2024</div>
+                    </div>
+                    <div class="video">
+                        <video src="video1.mp4" controls></video>
+                        <div class="title">Vidéo 1</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="main-content">
+                    <div class="album">
+                        <div class="album-title" onclick="togglePhotos(this)">
+                            CA ME DIT VELOS<span>▼</span>
+        
+                           
+        
+                        </div>
+                        <div class="photos-preview hidden">
+                            <div class="photo">
+                                
+                                <a href="VELO 2011-2012.html" class="item">
+                                    <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+            
+                                </a>
+                                <div class="title">CA ME DIT VELO 2011-2012</div>
+                            </div>
+                            <div class="photo">
+                                <a href="VELO 2024.html" class="item">
+                                    <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                    
+                                </a>
+                            
+                                <div class="title">CA ME DIT VELO 2024</div>
+                            </div>
+                            <div class="photo">
+                                <a href="VELO 2025.html" class="item">
+                                    <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                    
+                                </a>
+                            
+                                <div class="title">CA ME DIT VELO 2025</div>
+                            </div>
+                            <div class="video">
+                                <video src="video1.mp4" controls></video>
+                                <div class="title">Vidéo 1</div>
+                            </div>
+                        </div>
+                    </div>
+
+           
+                <div class="album">
+                    <div class="album-title" onclick="togglePhotos(this)">
+                        RENDONNER<span>▼</span>
+                    </div>
+                    <div class="photos-preview hidden">
+                        <div class="photo">
+                            <a href="RENDO 2012.html" class="item">
+                                <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                
+                            </a>
+                            <div class="title">RENDONNER 2012</div>
+                        </div>
+                        <div class="photo">
+                            <a href="RENDO 2023.html" class="item">
+                                <img src="IMG_9584.jpg" alt="Photo 1" style="width:calc(100% / 2); height:auto;">
+                                
+                            </a>
+                            <div class="title">RENDONNER 2023</div>
+                        </div>
+                        <div class="video">
+                            <video src="video2.mp4" controls></video>
+                            <div class="title">Vidéo 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <aside class="sidebar">
+            <h2>À propos</h2>
+            <p>Voici une zone de texte où vous pouvez ajouter des informations ou des descriptions.</p>
+        </aside>
+    </div>
+    <script>
+        function togglePhotos(element) {
+            const photosPreview = element.nextElementSibling;
+            photosPreview.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
+

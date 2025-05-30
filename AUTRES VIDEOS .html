@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTRES VIDEOS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modale */
+        #media-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fond sombre avec transparence */
+            display: none; /* Caché par défaut */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Toujours au-dessus */
+        }
+
+        #media-modal.active {
+            display: flex; /* Affiche la modale lorsqu'elle est activée */
+        }
+
+        .media-content img, .media-content video {
+            max-width: 70%;
+            max-height: 70%;
+            border-radius: 8px;
+            display: none; /* Empêche tout affichage multiple */
+            object-fit: contain; /* S'adapte à l'écran tout en conservant le ratio */
+            margin: auto;
+        }
+
+        .media-content img.visible, .media-content video.visible {
+            display: block; /* Seul l'élément en cours est visible */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+            font-size: 24px;
+            color: white;
+            background-color: #6a1f24;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #6a1f24;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background-color: #4b2c2f;
+        }
+
+        /* Espacement entre albums */
+        .album {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/FENAP LOGO.png" alt="Logo">
+        </div>
+        <select onchange="location = this.value;">
+            <option value="#"> Sélectionnez une page </option>
+            <option value="index.html">Accueil</option>
+            <option value="blog.html">blog</option>
+            <option value="matches.html">activites</option>
+            <option value="players.html">equipes</option>
+            <option value="contact.html">Contact</option>
+        </select>
+    </nav>
+
+    <header>
+        AUTRES VIDEOS
+    </header>
+
+    <div class="container">
+        <!-- Premier album -->
+        <div class="main-content">
+            <div class="album">
+                <div class="album-title" onclick="togglePhotos(this)">
+                    PHOTOS<span>▼</span>
+                </div>
+                <div class="photos-preview hidden">
+                    <div class="photo">
+                        <img src="photo1.jpg" alt="Aperçu Photo 1" onclick="openModal(0)">
+                        <div class="title">Photo 1</div>
+                    </div>
+                    <div class="photo">
+                        <img src="photo2.jpg" alt="Aperçu Photo 2" onclick="openModal(1)">
+                        <div class="title">Photo 2</div>
+                    </div>
+                    <div class="video">
+                        <video src="FENAP 2023/ETAPE 1/V1.MP4" onclick="openModal(2)"></video>
+                        <div class="title">Vidéo 1</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deuxième album -->
+            <div class="album">
+                <div class="album-title" onclick="togglePhotos(this)">
+                    AUTRES PHOTOS<span>▼</span>
+                </div>
+                <div class="photos-preview hidden">
+                    <div class="photo">
+                        <img src="photo3.jpg" alt="Aperçu Photo 3" onclick="openModal(3)">
+                        <div class="title">Photo 3</div>
+                    </div>
+                    <div class="photo">
+                        <img src="photo4.jpg" alt="Aperçu Photo 4" onclick="openModal(4)">
+                        <div class="title">Photo 4</div>
+                    </div>
+                    <div class="video">
+                        <video src="video2.mp4" onclick="openModal(5)"></video>
+                        <div class="title">Vidéo 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>À propos</h2>
+            <p>Voici une zone de texte où vous pouvez ajouter des informations ou des descriptions.</p>
+        </aside>
+    </div>
+
+    <!-- Modale dynamique -->
+    <div id="media-modal">
+        <button class="prev-btn" onclick="showPrevious()">Précédent</button>
+        <div class="media-content">
+            <img id="modal-image" src="" alt="Image agrandie">
+            <video id="modal-video" src="" controls></video>
+        </div>
+        <button class="next-btn" onclick="showNext()">Suivant</button>
+        <a href="#" class="close-btn" onclick="closeModal()">×</a>
+    </div>
+
+    <script>
+        const mediaItems = [
+            { type: 'image', src: 'photo1.jpg' },
+            { type: 'image', src: 'photo2.jpg' },
+            { type: 'video', src: 'FENAP 2023/ETAPE 1/V1.MP4' },
+            { type: 'image', src: 'photo3.jpg' },
+            { type: 'image', src: 'photo4.jpg' },
+            { type: 'video', src: 'video2.mp4' }
+        ];
+        let currentIndex = 0;
+
+        function togglePhotos(element) {
+            const photosPreview = element.nextElementSibling;
+            photosPreview.classList.toggle('hidden');
+        }
+
+        function openModal(index) {
+            currentIndex = index;
+            const modal = document.getElementById('media-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalVideo = document.getElementById('modal-video');
+            
+            // Réinitialiser l'affichage
+            modalImage.style.display = "none";
+            modalVideo.style.display = "none";
+            modalVideo.pause(); // Arrête la vidéo en cas de navigation
+
+            const media = mediaItems[currentIndex];
+            if (media.type === 'image') {
+                modalImage.src = media.src;
+                modalImage.style.display = "block";
+            } else if (media.type === 'video') {
+                modalVideo.src = media.src;
+                modalVideo.style.display = "block";
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('media-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalVideo = document.getElementById('modal-video');
+
+            modal.classList.remove('active');
+            modalImage.src = ""; // Réinitialise l'image
+            modalVideo.src = ""; // Réinitialise la vidéo
+        }
+
+        function showPrevious() {
+            currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+            openModal(currentIndex);
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % mediaItems.length;
+            openModal(currentIndex);
+        }
+    </script>
+</body>
+</html>

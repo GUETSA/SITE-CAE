@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Professionnelle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <!-- Menu déroulant intégré dans la barre de navigation -->
+        <select onchange="location = this.value;">
+            <option value="#">-- Sélectionnez une page --</option>
+            <option value="page1.html">Accueil</option>
+            <option value="page2.html">Galerie</option>
+            <option value="page3.html">Contact</option>
+        </select>
+    </nav>
+
+    <header>
+        Bienvenue à Ma Galerie Professionnelle
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <div class="album">
+                <div class="album-title" onclick="togglePhotos(this)">
+                    Album 1 <span>▼</span>
+                </div>
+                <div class="photos-preview hidden">
+                    <div class="photo">
+                        <img src="photo1.jpg" alt="Aperçu Photo 1">
+                        <div class="title">Photo 1</div>
+                    </div>
+                    <div class="photo">
+                        <img src="photo2.jpg" alt="Aperçu Photo 2">
+                        <div class="title">Photo 2</div>
+                    </div>
+                    <div class="video">
+                        <video src="video1.mp4" controls></video>
+                        <div class="title">Vidéo 1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album">
+                <div class="album-title" onclick="togglePhotos(this)">
+                    Album 2 <span>▼</span>
+                </div>
+                <div class="photos-preview hidden">
+                    <div class="photo">
+                        <img src="photo3.jpg" alt="Aperçu Photo 3">
+                        <div class="title">Photo 3</div>
+                    </div>
+                    <div class="video">
+                        <video src="video2.mp4" controls></video>
+                        <div class="title">Vidéo 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <h2>À propos</h2>
+            <p>Voici une zone de texte où vous pouvez ajouter des informations ou des descriptions.</p>
+        </aside>
+    </div>
+    <script>
+        function togglePhotos(element) {
+            const photosPreview = element.nextElementSibling;
+            photosPreview.classList.toggle('hidden');
+        }
+
+        const photos = ['IMG_7286.jpg', 'IMG_9584.jpg', 'IMG_7368.jpg']; // Liste des photos
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % photos.length; // Passer à la photo suivante
+            document.body.style.backgroundImage = `url('${photos[currentIndex]}')`;
+        }, 15000); // Toutes les 15000 ms (15 secondes)
+    </script>
+</body>
+</html>
+
+
